@@ -1,0 +1,23 @@
+{
+	"compilerOptions": {
+		"target": "es5",
+		"lib": ["es6", "DOM"], // add DOM to enable console log when running ts-node script*.ts
+		"types": ["reflect-metadata"],
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"noImplicitAny": true,
+		"preserveConstEnums": true,
+		"suppressImplicitAnyIndexErrors": false,
+		"noResolve": false,
+		"noUnusedParameters": false,
+		"noUnusedLocals": false,
+		"strictNullChecks": true,
+		"outDir": "dist",
+		"baseUrl": ".",
+		"sourceMap": true
+	},
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules"]
+}
