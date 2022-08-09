@@ -78,7 +78,7 @@ function problem3_2(input: number) {
 	do {
 		curPrimeNumber = primeGeneratorBottomUp.next().value;
 		if (input % curPrimeNumber === 0) result = curPrimeNumber;
-	} while ( curPrimeNumber <= conditionNumber )
+	} while (curPrimeNumber <= conditionNumber)
 
 	return result;
 }
@@ -91,17 +91,17 @@ function problem3_3(input: number) {
 	const remainFactors = [];
 	let conditionNumber = Math.floor(input / 2);
 
-	if ( conditionNumber % 2 === 0 ) conditionNumber -= 1;
+	if (conditionNumber % 2 === 0) conditionNumber -= 1;
 
-	for( let biggerFactor = conditionNumber; biggerFactor >= 2; biggerFactor -= 2) {
-		if ( input % biggerFactor === 0 ) {
-			if ( isPrime( biggerFactor ) ) return biggerFactor;
-			remainFactors.push( input / biggerFactor );
+	for (let biggerFactor = conditionNumber; biggerFactor >= 2; biggerFactor -= 2) {
+		if (input % biggerFactor === 0) {
+			if (isPrime(biggerFactor)) return biggerFactor;
+			remainFactors.push(input / biggerFactor);
 		}
 	}
-	remainFactors.reverse().forEach( num => {
-		if ( isPrime( num ) ) return num;
-	} );
+	remainFactors.reverse().forEach(num => {
+		if (isPrime(num)) return num;
+	});
 }
 
 // problem1( 1000 )
@@ -109,6 +109,36 @@ function problem3_3(input: number) {
 // problem2_2(4 * 10 ** 6) // solution 2
 
 // problem3_1 and problem2_2 is slower than 3_3
-const startMs3 = new Date().getTime();
-console.log(problem3_3( 600851475143 ));
-console.log( `[3]Total performance in: ${new Date().getTime() - startMs3}ms` );
+// const startMs3 = new Date().getTime();
+// console.log(problem3_3( 600851475143 ));
+// console.log( `[3]Total performance in: ${new Date().getTime() - startMs3}ms` );
+
+function problem7(input: number) {
+	const generator = PrimeGeneratorBottomUp();
+	let result;
+	let counter = 0;
+
+	while (counter < input) {
+		result = generator.next().value;
+		counter++
+	}
+
+	return result;
+}
+// console.log(problem7(10001));
+
+function problem10(input: number) {
+	const generator = PrimeGeneratorBottomUp();
+	let result = 0;
+	let placeHolderPrimeNumb = 0;
+
+	while (placeHolderPrimeNumb < input) {
+		result += placeHolderPrimeNumb;
+		placeHolderPrimeNumb = generator.next().value;
+	}
+
+	return result;
+}
+
+console.log(problem10(2000000));
+
